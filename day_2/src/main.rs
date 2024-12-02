@@ -9,10 +9,23 @@ fn main() {
     let input = fs::read_to_string("input.txt").expect("input.txt does not exist.");
     let reports: Vec<Vec<i64>> = input.lines().map(parse_line).collect();
     println!("{}", part_1(&reports));
+    println!("{}", part_2(&reports));
 }
 
 fn part_1(reports: &[Vec<i64>]) -> usize {
     reports.iter().filter(|x| safe(x)).count()
+}
+
+fn part_2(reports: &[Vec<i64>]) -> usize {
+    reports.iter().filter(|x| problem_dampener(x)).count()
+}
+
+fn problem_dampener(report: &[i64]) -> bool {
+    let mut v = vec![];
+    for i in 0..report.len() {
+        v.push([&report[..i], &report[(i + 1)..]].concat());
+    } 
+    v.iter().any(|x| safe(x))
 }
 
 fn safe(report: &[i64]) -> bool {
