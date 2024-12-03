@@ -1,6 +1,3 @@
-#![warn(clippy::pedantic)]
-#![warn(clippy::style)]
-
 use std::collections::HashMap;
 use std::fs;
 use std::iter::zip;
@@ -9,9 +6,7 @@ fn main() {
     let input = fs::read_to_string("input.txt").expect("input.txt does not exist.");
     let (mut list_a, mut list_b): (Vec<i32>, Vec<i32>) = input.lines().map(parse_line).unzip();
     list_a.sort_unstable(); list_b.sort_unstable();
-
     println!("{}", part_1(&list_a, &list_b));
-
     println!("{}", part_2(&list_a, &list_b));
 }
 

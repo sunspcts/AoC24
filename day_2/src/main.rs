@@ -1,7 +1,3 @@
-#![warn(clippy::pedantic)]
-#![warn(clippy::style)]
-#![deny(clippy::all)]
-
 use std::fs;
 use itertools::Itertools;
 

@@ -1,7 +1,4 @@
 // this SUCKS and is HACKY but it WORKS and that's COOL
-#![warn(clippy::pedantic)]
-#![warn(clippy::style)]
-#![deny(clippy::all)]
 use regex::Regex;
 use std::fs;
 fn main() {
